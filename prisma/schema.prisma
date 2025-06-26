@@ -6,3 +6,17 @@ datasource db {
   provider = "postgresql"
   url      = env("DATABASE_URL")
 }
+
+model Books {
+  id               String   @id
+  isbn             String   @unique
+  title            String
+  authors          String[]
+  publication_year String
+  page_count       String
+  created_at       DateTime
+  updated_at       DateTime
+  is_active        Boolean // SE FOR APENAS DESATIVAR
+
+  @@map("books")
+}
